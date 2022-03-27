@@ -1,0 +1,134 @@
+:root {
+  --color-brand: #0a66c2;
+  --color-white: white;
+  --color-gray: #666666;
+  --color-soft-gray: #5f6163;
+  --color-medium-white: #eef3f8;
+  --color-main-bg: #f3f2ef;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--color-main-bg);
+}
+
+header {
+  background-color: var(--color-white);
+  box-shadow: 0px 3px 5px 0px rgba(186,186,186,1);
+  height: 52px;
+}
+
+.global-nav__container {
+  display: flex;
+  height: 100%;
+  max-width: var(--screen-lg);
+  margin: 0 auto;
+  align-items: center;
+
+
+}
+
+.global-nav__searcher {
+  display: flex;
+  width: calc(320px + 120px);
+}
+
+.global-nav__logo {
+  display: inline-block;
+  height: 34px;
+  width: 34px;
+  margin-right: 6px;
+}
+
+.searcher-container {
+  height: 34px;
+  position: relative;
+  width: 100%;
+}
+
+.fa-magnifying-glass {
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  color: var(--color-gray);
+}
+
+.global-nav__search-bar {
+  height: 100%;
+  width: 280px;
+  border: 1px solid var(--color-medium-white);
+  background-color: var(--color-medium-white);
+  padding: 0 8px 0 40px;
+  outline: none;
+  transition: width .2s ease-in-out;
+}
+
+.global-nav__search-bar:active, .global-nav__search-bar:focus {
+  width: 100%;
+}
+
+nav > ul {
+  display: flex;
+}
+
+.global-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 12px;
+}
+
+.global-nav__item:link, .global-nav__item:visited {
+  color: var(--color-gray);
+  text-decoration: none;
+}
+
+.global-nav__item > i {
+  font-size: 1.25rem;
+}
+
+.global-nav__item > span {
+  font-size: 0.65rem;
+}
+
+.with-tooltip {
+  position: relative;
+}
+
+.with-tooltip::after {
+  background-color: var(--color-brand);
+  border-radius: 5px;
+  color: var(--color-white);
+  content: attr(data-tooltip);
+  font-size: calc((14 / 16) * 1rem);
+  height: fit-content;
+  left: -10%;
+  padding: 4px 12px;
+  position: absolute;
+  text-align: center;
+  top: 115%;
+  transform: scale(0);
+  transform-origin: top;
+  transition: all .15s ease-in-out;
+  min-width: max-content;
+  z-index: 1;
+  filter: opacity(.9);
+}
+
+.with-tooltip:hover::after {
+  display: block;
+  transform: scale(1);
+}
